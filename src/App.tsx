@@ -10,9 +10,6 @@ import { Platform } from "./hooks/useGames";
 function App() {
   const [selectedGenre, setselectedGenre] = useState<Genre | null>(null);
 
-  const [selectedPlatform, setselectedPlatform] = useState<Platform | null>(
-    null
-  );
   return (
     <Grid
       templateAreas={{
@@ -36,14 +33,8 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <PlatformSelector
-          selectedPlatform={selectedPlatform}
-          onSelectPlatform={(platform) => setselectedPlatform(platform)}
-        />
-        <GameGrid
-          selectedPlatform={selectedPlatform}
-          selectedGenre={selectedGenre}
-        />
+        <PlatformSelector />
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );
